@@ -22,5 +22,10 @@ public class ReservationDTO {
     private Student student;
     private Room room;
 
-
+    public ReservationDTO(String res_id, double payingAmount, double lessAmount, String status) {
+        this.res_id = res_id;
+        this.payingAmount = payingAmount;
+        this.lessAmount = lessAmount;
+        this.status = status;
+    }
 }

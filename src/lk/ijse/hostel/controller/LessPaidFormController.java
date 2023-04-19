@@ -4,15 +4,13 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import lk.ijse.hostel.dto.CustomDTO;
+import lk.ijse.hostel.dto.ReservationDTO;
 import lk.ijse.hostel.service.ServiceFactory;
 import lk.ijse.hostel.service.custom.ReservationService;
 import lk.ijse.hostel.tm.LessDetailsTM;
@@ -78,6 +76,7 @@ public class LessPaidFormController {
     private Pattern doublePattern;
 
     public double roomKeyMoney;
+    public double paidMoney;
 
     private final ReservationService reservationService = (ReservationService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.RESERVATION);
 
@@ -145,8 +144,12 @@ public class LessPaidFormController {
 
     }
 
-    public void updatePaymentOnAction(ActionEvent actionEvent) {
-        /*reservationService.updateReservation()*/
+    public void updatePaymentOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+        boolean isUpdate = reservationService.updateLessPayment(new ReservationDTO(lblReservationId.getText(), paidMoney, Double.parseDouble(lblLessAmount.getText()), lblStatus.getText()));
+        if (isUpdate){
+            loadDataToTable(searchText);
+            new Alert(Alert.AlertType.CONFIRMATION, "Room Updated!").show();
+        }
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
@@ -154,11 +157,11 @@ public class LessPaidFormController {
         if (isKeyMoney) {
             double lessAmount = Double.parseDouble(lblLessAmount.getText());
             double paidAmount = Double.parseDouble(txtPayAmount.getText());
-
-            double keyMoney = lessAmount - paidAmount;
+             paidMoney = (roomKeyMoney - lessAmount)+paidAmount;
+            double lesskeyMoney = lessAmount - paidAmount;
             /*double lessMoney=roomKeyMoney-keyMoney;*/
-            lblLessAmount.setText(String.valueOf(keyMoney));
-            if (keyMoney > 0) {
+            lblLessAmount.setText(String.valueOf(lesskeyMoney));
+            if (lesskeyMoney > 0) {
                 lblStatus.setText("Less Paid");
                 lblStatus.setTextFill(Color.RED);
             } else {

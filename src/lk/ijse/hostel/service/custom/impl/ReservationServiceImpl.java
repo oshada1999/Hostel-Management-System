@@ -55,6 +55,11 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
+    public boolean updateLessPayment(ReservationDTO reservationDTO) throws SQLException, ClassNotFoundException {
+        return reservationDAO.updateLessPayment(reservationDTO);
+    }
+
+    @Override
     public ReservationDTO searchReservation(String id) throws SQLException, ClassNotFoundException {
         return null;
     }

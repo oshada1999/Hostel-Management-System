@@ -105,7 +105,7 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
-      <Label fx:id="lblStatus" layoutX="797.0" layoutY="167.0" prefHeight="30.0" prefWidth="115.0" style="-fx-border-color: #10384F;">
+      <Label fx:id="lblStatus" layoutX="818.0" layoutY="167.0" prefHeight="30.0" prefWidth="115.0" style="-fx-border-color: #10384F;">
          <font>
             <Font size="19.0" />
          </font>

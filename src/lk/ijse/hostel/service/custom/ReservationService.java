@@ -21,6 +21,8 @@ public interface ReservationService extends SupperService {
 
     boolean updateReservation(ReservationDTO reservationDTO) throws SQLException, ClassNotFoundException;
 
+    boolean updateLessPayment(ReservationDTO reservationDTO) throws SQLException, ClassNotFoundException;
+
     ReservationDTO searchReservation(String id) throws SQLException, ClassNotFoundException;
 
     public List<CustomDTO> getLessPaidStudentList();

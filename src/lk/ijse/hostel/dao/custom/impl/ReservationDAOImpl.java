@@ -1,11 +1,13 @@
 package lk.ijse.hostel.dao.custom.impl;
 
 import lk.ijse.hostel.dao.custom.ReservationDAO;
+import lk.ijse.hostel.dto.ReservationDTO;
 import lk.ijse.hostel.entity.Reservation;
 import lk.ijse.hostel.entity.Room;
 import lk.ijse.hostel.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -106,4 +108,23 @@ public class ReservationDAOImpl implements ReservationDAO {
 
         return newId;
     }
+
+    @Override
+    public boolean updateLessPayment(ReservationDTO dto) throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String hql="UPDATE Reservation r set r.payingAmount =:paidAmount, r.lessAmount=:lessAmount,r.status=:status WHERE r.res_id = :reID";
+        Query query = session.createQuery(hql);
+        query.setParameter("paidAmount",dto.getPayingAmount());
+        query.setParameter("lessAmount",dto.getLessAmount());
+        query.setParameter("status",dto.getStatus());
+        query.setParameter("reID",dto.getRes_id());
+        int i = query.executeUpdate();
+        transaction.commit();
+        session.close();
+        return i>0;
+    }
+
+
 }
