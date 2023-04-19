@@ -1,0 +1,19 @@
+.txt-input
+{
+    -fx-text-fill: #ffff;
+}
+
+.button_2{
+    -fx-background-color:  #205D81;
+}
+.button1:hover{
+    -fx-background-color: #709AB1 ;
+    -fx-border-color: #205D81 ;
+    -fx-border-width: 0px 0px 0px 3px;
+    -fx-text-fill:  #ffff;
+
+}
+
+.button_3{
+    -fx-background-color: yellow ;
+}

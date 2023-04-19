@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="reservationContext" prefHeight="836.0" prefWidth="1297.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.ReservationRoomFormController">
+    <children>
+        <TableView fx:id="tblReservation" layoutX="17.0" layoutY="334.0" prefHeight="486.0" prefWidth="1258.0">
+            <columns>
+                <TableColumn fx:id="clmReservationID" prefWidth="121.00003051757812" text="Reservation ID" />
+                <TableColumn fx:id="clmStudentID" prefWidth="118.00003051757812" text="Student ID" />
+            <TableColumn fx:id="clmRoomTypeID" prefWidth="132.0" text="Room Type ID" />
+            <TableColumn fx:id="clmStartDate" prefWidth="178.0" text="Start Date" />
+            <TableColumn fx:id="clmEndDate" prefWidth="186.0" text="End Date" />
+            <TableColumn fx:id="clmPayingAmount" prefWidth="193.0" text="Paying Amount" />
+            <TableColumn fx:id="clmLessAmount" prefWidth="192.0" text="Less Amount" />
+            <TableColumn fx:id="clmStatus" prefWidth="136.0" text="Status" />
+            </columns>
+        </TableView>
+        <Separator layoutX="1.0" layoutY="56.0" prefHeight="37.0" prefWidth="1296.0" />
+        <Label layoutX="87.0" layoutY="15.0" text="Reserve Room">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../asset/icons8-room-64%20(1).png" />
+            </image>
+        </ImageView>
+        <TextField fx:id="txtSearch" layoutX="1043.0" layoutY="83.0" promptText="Search" />
+        <ImageView fitHeight="21.0" fitWidth="22.0" layoutX="1246.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../asset/search_FILL0_wght400_GRAD0_opsz48.png" />
+            </image>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </ImageView>
+        <JFXButton buttonType="RAISED" layoutX="915.0" layoutY="287.0" onAction="#addReservationOnAction" style="-fx-background-color: #138094; -fx-background-radius: 5;" text="+Add new Reservation" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="1114.0" layoutY="287.0" onAction="#updateReservationOnAction" style="-fx-background-color: #3EA2C9; -fx-background-radius: 5;" text="Update Reservation" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+      <JFXComboBox fx:id="cmbStudentID" layoutX="24.0" layoutY="144.0" onAction="#cmbClickOnAction" prefHeight="31.0" prefWidth="134.0" promptText="Student ID" />
+      <JFXDatePicker fx:id="fromDatePicker" layoutX="667.0" layoutY="145.0" prefHeight="31.0" prefWidth="163.0" promptText="Date" />
+      <JFXComboBox fx:id="cmbRoomID" layoutX="20.0" layoutY="211.0" onAction="#cmbRoomClickOnAction" prefHeight="31.0" prefWidth="134.0" promptText="Room Type ID" />
+      <Label layoutX="221.0" layoutY="147.0" prefHeight="31.0" prefWidth="118.0" text="Student Name :-">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="925.0" layoutY="211.0" prefHeight="31.0" prefWidth="118.0" text="Available QTY :-">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="571.0" layoutY="213.0" prefHeight="31.0" prefWidth="134.0" text="KeyMoney (LKR) :-">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblStudentName" layoutX="351.0" layoutY="147.0" prefHeight="31.0" prefWidth="118.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblKeyMoney" layoutX="726.0" layoutY="214.0" prefHeight="31.0" prefWidth="75.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAvailableQty" layoutX="1056.0" layoutY="212.0" prefHeight="31.0" prefWidth="81.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="513.0" layoutY="147.0" prefHeight="31.0" prefWidth="134.0" text="Date Period : From">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="854.0" layoutY="152.0" text="To">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXDatePicker fx:id="toDatePIcker" layoutX="902.0" layoutY="144.0" prefHeight="31.0" prefWidth="163.0" promptText="Date" />
+      <JFXTextField fx:id="txtPayingAmount" layoutX="18.0" layoutY="276.0" prefWidth="134.0" promptText="Paying Amount">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXTextField>
+      <Label layoutX="349.0" layoutY="277.0" prefHeight="31.0" prefWidth="118.0" text="Less Amount :-">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblLessAmount" layoutX="482.0" layoutY="274.0" prefHeight="31.0" prefWidth="100.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="244.0" layoutY="212.0" prefHeight="31.0" prefWidth="100.0" text="Room Type :-">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblRoomType" layoutX="348.0" layoutY="213.0" prefHeight="31.0" prefWidth="134.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="178.0" layoutY="279.0" onAction="#btnAddOnAction" style="-fx-background-radius: 20; -fx-background-color: #1D96BD;" text="ADD" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="616.0" layoutY="279.0" prefHeight="31.0" prefWidth="61.0" text="Status :-">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblStatus" layoutX="685.0" layoutY="276.0" prefHeight="31.0" prefWidth="100.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="19.0" layoutY="84.0" prefHeight="31.0" prefWidth="152.0" text="Reservation ID :">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblReservationId" layoutX="186.0" layoutY="84.0" prefHeight="31.0" prefWidth="152.0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="userManageContext" prefHeight="836.0" prefWidth="1297.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.ChangeUserFormController">
+    <children>
+        <Separator layoutX="1.0" layoutY="56.0" prefHeight="37.0" prefWidth="1296.0" />
+        <Label layoutX="87.0" layoutY="15.0" text="Change User">
+            <font>
+                <Font name="System Bold" size="28.0" />
+            </font>
+        </Label>
+        <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../asset/icons8-room-64%20(1).png" />
+            </image>
+        </ImageView>
+      <ImageView fitHeight="661.0" fitWidth="518.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/Untitled%20(8).png" />
+         </image>
+      </ImageView>
+        <JFXButton buttonType="RAISED" layoutX="990.0" layoutY="287.0" onAction="#addNewUserOnAction" style="-fx-background-color: #138094; -fx-background-radius: 5;" text="+Add new User" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor></JFXButton>
+        <JFXButton buttonType="RAISED" layoutX="247.0" layoutY="667.0" onAction="#updateUserOnAction" style="-fx-background-color: #3EA2C9; -fx-background-radius: 5;" text="Update User" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </JFXButton>
+      <JFXPasswordField fx:id="txtOldPassword" layoutX="191.0" layoutY="345.0" prefHeight="31.0" prefWidth="228.0" promptText="Old Password">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXTextField fx:id="txtNewUsername" layoutX="191.0" layoutY="438.0" prefHeight="31.0" prefWidth="228.0" promptText="New UserName">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="txtNewPassword" layoutX="191.0" layoutY="531.0" prefHeight="31.0" prefWidth="228.0" promptText="New Password">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <Label fx:id="lblOldUserName" layoutX="324.0" layoutY="248.0" prefHeight="31.0" prefWidth="120.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label layoutX="179.0" layoutY="253.0" text="Your Username  :">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="201.0" text="Update">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>
