@@ -1,5 +1,6 @@
 package lk.ijse.hostel.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -27,6 +28,7 @@ public class LessPaidFormController {
     public Label lblStudentName;
     public Label lblLessAmount;
     public Label lblStatus;
+    public JFXButton btnUpdatePayment;
     @FXML
     private AnchorPane RoomManageContext;
 
@@ -86,6 +88,7 @@ public class LessPaidFormController {
         SearchListener();
         setListener();
         doublePattern = Pattern.compile("^[1-9]{1}[(0-9,.)]{2,}$");
+        btnUpdatePayment.setDisable(true);
 
     }
     private void setListener() {
@@ -148,13 +151,14 @@ public class LessPaidFormController {
         boolean isUpdate = reservationService.updateLessPayment(new ReservationDTO(lblReservationId.getText(), paidMoney, Double.parseDouble(lblLessAmount.getText()), lblStatus.getText()));
         if (isUpdate){
             loadDataToTable(searchText);
-            new Alert(Alert.AlertType.CONFIRMATION, "Room Updated!").show();
+            new Alert(Alert.AlertType.CONFIRMATION, "Payment Updated!").show();
         }
     }
 
     public void btnAddOnAction(ActionEvent actionEvent) {
         boolean isKeyMoney = doublePattern.matcher(txtPayAmount.getText()).matches();
         if (isKeyMoney) {
+            btnUpdatePayment.setDisable(false);
             double lessAmount = Double.parseDouble(lblLessAmount.getText());
             double paidAmount = Double.parseDouble(txtPayAmount.getText());
              paidMoney = (roomKeyMoney - lessAmount)+paidAmount;

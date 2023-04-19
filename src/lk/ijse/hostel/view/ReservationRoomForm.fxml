@@ -49,21 +49,13 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <JFXButton buttonType="RAISED" layoutX="915.0" layoutY="287.0" onAction="#addReservationOnAction" style="-fx-background-color: #138094; -fx-background-radius: 5;" text="+Add new Reservation" textFill="WHITE">
+        <JFXButton fx:id="btnReservation" buttonType="RAISED" layoutX="1097.0" layoutY="279.0" onAction="#addReservationOnAction" style="-fx-background-color: #138094; -fx-background-radius: 5;" text="+Add new Reservation" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
             <cursor>
                 <Cursor fx:constant="HAND" />
             </cursor></JFXButton>
-        <JFXButton buttonType="RAISED" layoutX="1114.0" layoutY="287.0" onAction="#updateReservationOnAction" style="-fx-background-color: #3EA2C9; -fx-background-radius: 5;" text="Update Reservation" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="15.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor>
-        </JFXButton>
       <JFXComboBox fx:id="cmbStudentID" layoutX="24.0" layoutY="144.0" onAction="#cmbClickOnAction" prefHeight="31.0" prefWidth="134.0" promptText="Student ID" />
       <JFXDatePicker fx:id="fromDatePicker" layoutX="667.0" layoutY="145.0" prefHeight="31.0" prefWidth="163.0" promptText="Date" />
       <JFXComboBox fx:id="cmbRoomID" layoutX="20.0" layoutY="211.0" onAction="#cmbRoomClickOnAction" prefHeight="31.0" prefWidth="134.0" promptText="Room Type ID" />
@@ -132,7 +124,7 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXButton layoutX="178.0" layoutY="279.0" onAction="#btnAddOnAction" style="-fx-background-radius: 20; -fx-background-color: #1D96BD;" text="ADD" textFill="WHITE">
+      <JFXButton fx:id="btnAdd" layoutX="178.0" layoutY="279.0" onAction="#btnAddOnAction" style="-fx-background-radius: 20; -fx-background-color: #1D96BD;" text="ADD" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

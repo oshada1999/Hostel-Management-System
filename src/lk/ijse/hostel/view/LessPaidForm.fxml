@@ -54,7 +54,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <JFXButton buttonType="RAISED" layoutX="1137.0" layoutY="274.0" onAction="#updatePaymentOnAction" style="-fx-background-color: #138094; -fx-background-radius: 5;" text="Update Payment" textFill="WHITE">
+        <JFXButton fx:id="btnUpdatePayment" buttonType="RAISED" layoutX="1137.0" layoutY="274.0" onAction="#updatePaymentOnAction" style="-fx-background-color: #138094; -fx-background-radius: 5;" text="Update Payment" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>

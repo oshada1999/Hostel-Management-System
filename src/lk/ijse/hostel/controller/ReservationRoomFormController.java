@@ -1,5 +1,6 @@
 package lk.ijse.hostel.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
@@ -42,6 +43,7 @@ public class ReservationRoomFormController {
 
     public JFXDatePicker fromDatePicker;
     public Label lblReservationId;
+    public JFXButton btnReservation;
     @FXML
     private AnchorPane reservationContext;
 
@@ -117,6 +119,7 @@ public class ReservationRoomFormController {
         SearchListener();
         setListener();
         setReservationId();
+        btnReservation.setDisable(true);
 
         doublePattern = Pattern.compile("^[1-9]{1}[(0-9,.)]{2,}$");
 
@@ -282,6 +285,7 @@ public class ReservationRoomFormController {
     public void btnAddOnAction(ActionEvent actionEvent) {
         boolean isKeyMoney = doublePattern.matcher(txtPayingAmount.getText()).matches();
         if (isKeyMoney) {
+            btnReservation.setDisable(false);
             double keyMoney = Double.parseDouble(lblKeyMoney.getText());
             double paidAmount = Double.parseDouble(txtPayingAmount.getText());
 
