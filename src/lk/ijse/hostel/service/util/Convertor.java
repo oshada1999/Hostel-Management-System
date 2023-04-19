@@ -1,13 +1,7 @@
 package lk.ijse.hostel.service.util;
 
-import lk.ijse.hostel.dto.ReservationDTO;
-import lk.ijse.hostel.dto.RoomDTO;
-import lk.ijse.hostel.dto.StudentDTO;
-import lk.ijse.hostel.dto.UserDTO;
-import lk.ijse.hostel.entity.Reservation;
-import lk.ijse.hostel.entity.Room;
-import lk.ijse.hostel.entity.Student;
-import lk.ijse.hostel.entity.User;
+import lk.ijse.hostel.dto.*;
+import lk.ijse.hostel.entity.*;
 
 public class Convertor {
     public UserDTO formUser(User user){
@@ -34,6 +28,12 @@ public class Convertor {
     }
     public Reservation toReservation(ReservationDTO reservationDTO){
         return new Reservation(reservationDTO.getRes_id(),reservationDTO.getStartDate(),reservationDTO.getEndDate(),reservationDTO.getPayingAmount(),reservationDTO.getLessAmount(),reservationDTO.getStatus(),reservationDTO.getStudent(),reservationDTO.getRoom());
+    }
+    public CustomDTO fromCustom(CustomEntity customEntity){
+        return new CustomDTO(customEntity.getReID(),customEntity.getRoID(),customEntity.getStID(),customEntity.getName(),customEntity.getAddress(),customEntity.getContact(),customEntity.getDate(),customEntity.getKeyMoney(),customEntity.getLessAmount(),customEntity.getStatus());
+    }
+    public CustomEntity toCustom(CustomDTO customDTO){
+        return new CustomEntity(customDTO.getReID(),customDTO.getRoID(),customDTO.getStID(),customDTO.getName(),customDTO.getAddress(),customDTO.getContact(),customDTO.getDate(),customDTO.getKeyMoney(),customDTO.getLessAmount(),customDTO.getStatus());
     }
 
 }

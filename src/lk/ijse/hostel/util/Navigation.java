@@ -33,6 +33,9 @@ public class Navigation {
             case USER:
                 iniUI("ChangeUserForm.fxml");
                 break;
+                case LESS:
+                iniUI("LessPaidForm.fxml");
+                break;
 
         }
     }

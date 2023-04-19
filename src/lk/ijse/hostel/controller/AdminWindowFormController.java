@@ -77,7 +77,7 @@ public class AdminWindowFormController {
         Navigation.navigate(Role.USER,dashboardContext);
     }
 
-    public void lessPaidStudentOnAction(ActionEvent actionEvent) {
-
+    public void lessPaidStudentOnAction(ActionEvent actionEvent) throws IOException {
+        Navigation.navigate(Role.LESS,dashboardContext);
     }
 }
