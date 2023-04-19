@@ -4,11 +4,14 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import lk.ijse.hostel.dto.CustomDTO;
 import lk.ijse.hostel.service.ServiceFactory;
 import lk.ijse.hostel.service.custom.ReservationService;
@@ -18,9 +21,14 @@ import lk.ijse.hostel.tm.RoomTM;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class LessPaidFormController {
 
+    public Label lblReservationId;
+    public Label lblStudentName;
+    public Label lblLessAmount;
+    public Label lblStatus;
     @FXML
     private AnchorPane RoomManageContext;
 
@@ -67,6 +75,9 @@ public class LessPaidFormController {
     private TextField txtSearch;
 
     private String searchText="";
+    private Pattern doublePattern;
+
+    public double roomKeyMoney;
 
     private final ReservationService reservationService = (ReservationService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.RESERVATION);
 
@@ -75,6 +86,7 @@ public class LessPaidFormController {
         setCellValue();
         SearchListener();
         setListener();
+        doublePattern = Pattern.compile("^[1-9]{1}[(0-9,.)]{2,}$");
 
     }
     private void setListener() {
@@ -85,10 +97,11 @@ public class LessPaidFormController {
         });
     }
     private void setData(LessDetailsTM newValue) {
-        /*txtID.setText(newValue.getRoom_type_id());
-        txtKeyMony.setText(String.valueOf(newValue.getKey_money()));
-        txtRoomQTY.setText(String.valueOf(newValue.getQty()));
-        cmbType.setValue(newValue.getType());*/
+        lblReservationId.setText(newValue.getReID());
+        lblStudentName.setText(newValue.getName());
+        lblLessAmount.setText(String.valueOf(newValue.getLessAmount()));
+        lblStatus.setText(newValue.getStatus());
+        roomKeyMoney=newValue.getKeyMoney();
     }
     void SearchListener() {
         txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -130,6 +143,32 @@ public class LessPaidFormController {
     @FXML
     void updateRoomOnAction(ActionEvent event) {
 
+    }
+
+    public void updatePaymentOnAction(ActionEvent actionEvent) {
+        /*reservationService.updateReservation()*/
+    }
+
+    public void btnAddOnAction(ActionEvent actionEvent) {
+        boolean isKeyMoney = doublePattern.matcher(txtPayAmount.getText()).matches();
+        if (isKeyMoney) {
+            double lessAmount = Double.parseDouble(lblLessAmount.getText());
+            double paidAmount = Double.parseDouble(txtPayAmount.getText());
+
+            double keyMoney = lessAmount - paidAmount;
+            /*double lessMoney=roomKeyMoney-keyMoney;*/
+            lblLessAmount.setText(String.valueOf(keyMoney));
+            if (keyMoney > 0) {
+                lblStatus.setText("Less Paid");
+                lblStatus.setTextFill(Color.RED);
+            } else {
+                lblStatus.setText("Paid");
+                lblStatus.setTextFill(Color.GREEN);
+            }
+        } else {
+            txtPayAmount.setFocusColor(Paint.valueOf("Red"));
+            txtPayAmount.requestFocus();
+        }
     }
 
 }
