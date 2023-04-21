@@ -11,14 +11,25 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
-    private final Convertor convertor=new Convertor();
     @Override
     public boolean save(User dto) throws SQLException, ClassNotFoundException {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        try {
+            session.save(dto);
+            transaction.commit();
+        }catch (Exception e){
+            transaction.rollback();
+        }finally {
+            session.close();
+        }
         return true;
     }
 
@@ -96,5 +107,35 @@ public class UserDAOImpl implements UserDAO {
         transaction.commit();
         session.close();
         return i>0;
+    }
+
+    @Override
+    public String generateNewId() throws IOException {
+        String newId="U001";
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        String sql="SELECT user_id FROM USER ORDER BY user_id DESC LIMIT 1";
+        List<String> list = session.createSQLQuery(sql).list();
+
+        for (String id : list) {
+            if (id!=null){
+                int num = Integer.valueOf(id.substring(1));
+                num++;
+
+                if (num<=9){
+                    newId="U00"+num;
+                }else if (num>9&&num<100){
+                    newId="U0"+num;
+                }else if (num>=100){
+                    newId="U"+num;
+                }
+            }
+        }
+
+        transaction.commit();
+        session.close();
+
+        return newId;
     }
 }

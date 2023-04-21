@@ -5,10 +5,12 @@ import lk.ijse.hostel.dao.custom.UserDAO;
 import lk.ijse.hostel.dto.RoomDTO;
 import lk.ijse.hostel.dto.UserDTO;
 import lk.ijse.hostel.entity.Room;
+import lk.ijse.hostel.entity.Student;
 import lk.ijse.hostel.entity.User;
 import lk.ijse.hostel.service.custom.UserService;
 import lk.ijse.hostel.service.util.Convertor;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -17,7 +19,16 @@ public class UserServiceImpl implements UserService {
     private final Convertor convertor=new Convertor();
     @Override
     public boolean addUser(UserDTO userDTO) throws SQLException, ClassNotFoundException {
-        return false;
+        if (userDAO.existByPk(userDTO.getUser_id())){
+            return false;
+        }
+        User user = convertor.toUser(userDTO);
+        return userDAO.save(user);
+    }
+
+    @Override
+    public String getNewId() throws IOException {
+        return userDAO.generateNewId();
     }
 
     @Override

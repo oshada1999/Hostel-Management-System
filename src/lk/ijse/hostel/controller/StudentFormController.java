@@ -1,9 +1,6 @@
 package lk.ijse.hostel.controller;
 
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXRadioButton;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -34,6 +31,7 @@ public class StudentFormController {
 
     public TableColumn clmLName;
     public TableColumn clmFName;
+    public JFXButton btnAdd;
     @FXML
     private AnchorPane studentManageContext;
 
@@ -113,6 +111,7 @@ public class StudentFormController {
         idPattern= Pattern.compile("[(S)(0-9)]{4,}$");
         phonePattern=Pattern.compile("[(0-9)]{10}$");
         stringPattern=Pattern.compile("[(A-Z,a-z)]{1,}$");
+        btnAdd.setDisable(true);
     }
     private void setListener() {
         tblStudent.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
@@ -301,4 +300,7 @@ public class StudentFormController {
         }
     }
 
+    public void cmbClickOnAction(ActionEvent actionEvent) {
+        btnAdd.setDisable(false);
+    }
 }

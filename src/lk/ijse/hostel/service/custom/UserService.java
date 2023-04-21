@@ -3,11 +3,14 @@ package lk.ijse.hostel.service.custom;
 import lk.ijse.hostel.dto.UserDTO;
 import lk.ijse.hostel.service.SupperService;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface UserService extends SupperService {
     boolean addUser(UserDTO userDTO) throws SQLException, ClassNotFoundException;
+
+    String getNewId() throws IOException;
 
     ArrayList<UserDTO> getAllUser() throws SQLException, ClassNotFoundException;
 

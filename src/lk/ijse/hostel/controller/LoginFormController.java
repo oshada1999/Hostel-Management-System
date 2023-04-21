@@ -24,6 +24,12 @@ public class LoginFormController {
     public static UserDTO logUserDTO;
 
     private final UserService userService= (UserService) ServiceFactory.getServiceFactory().getService(ServiceFactory.ServiceTypes.USER);
+    public JFXButton btnPassword;
+    public JFXTextField txtShowPass;
+
+    public void initialize(){
+        txtShowPass.setVisible(false);
+    }
 
     public void loginOnAction(ActionEvent actionEvent) {
         String userName=txtUsername.getText();
@@ -40,5 +46,20 @@ public class LoginFormController {
         } catch (SQLException | ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void passwordOnAction(ActionEvent actionEvent) {
+        if (btnPassword.getText().equals("Show")){
+            txtPassword.setVisible(false);
+            txtShowPass.setVisible(true);
+            txtShowPass.setText(txtPassword.getText());
+            btnPassword.setText("Hide");
+        }else {
+            txtPassword.setVisible(true);
+            txtShowPass.setVisible(false);
+            txtPassword.setText(txtShowPass.getText());
+            btnPassword.setText("Show");
+        }
+
     }
 }

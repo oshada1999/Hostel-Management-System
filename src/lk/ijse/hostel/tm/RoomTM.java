@@ -15,5 +15,5 @@ public class RoomTM {
     private String type;
     private double key_money;
     private int qty;
-    private Button btn;
+   /* private Button btn;*/
 }

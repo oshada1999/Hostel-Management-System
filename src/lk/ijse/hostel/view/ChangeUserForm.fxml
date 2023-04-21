@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
@@ -14,14 +15,14 @@
 <AnchorPane fx:id="userManageContext" prefHeight="836.0" prefWidth="1297.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel.controller.ChangeUserFormController">
     <children>
         <Separator layoutX="1.0" layoutY="56.0" prefHeight="37.0" prefWidth="1296.0" />
-        <Label layoutX="87.0" layoutY="15.0" text="Change User">
+        <Label layoutX="98.0" layoutY="25.0" text="Account">
             <font>
                 <Font name="System Bold" size="28.0" />
             </font>
         </Label>
-        <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="55.0" fitWidth="64.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../asset/icons8-room-64%20(1).png" />
+                <Image url="@../asset/icons8-user.gif" />
             </image>
         </ImageView>
       <ImageView fitHeight="661.0" fitWidth="518.0" layoutX="72.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
@@ -29,13 +30,6 @@
             <Image url="@../asset/Untitled%20(8).png" />
          </image>
       </ImageView>
-        <JFXButton buttonType="RAISED" layoutX="990.0" layoutY="287.0" onAction="#addNewUserOnAction" style="-fx-background-color: #138094; -fx-background-radius: 5;" text="+Add new User" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="15.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor></JFXButton>
         <JFXButton buttonType="RAISED" layoutX="247.0" layoutY="667.0" onAction="#updateUserOnAction" style="-fx-background-color: #3EA2C9; -fx-background-radius: 5;" text="Update User" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
@@ -59,19 +53,140 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXPasswordField>
-      <Label fx:id="lblOldUserName" layoutX="324.0" layoutY="248.0" prefHeight="31.0" prefWidth="120.0">
+      <Label fx:id="lblOldUserName" layoutX="236.0" layoutY="280.0" prefHeight="31.0" prefWidth="120.0" style="-fx-border-color: #5C8E7E;" text="      userName">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
-      <Label layoutX="179.0" layoutY="253.0" text="Your Username  :">
+      <Label layoutX="239.0" layoutY="253.0" text="Your Username " textFill="#667c62">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="264.0" layoutY="201.0" text="Update">
+      <ImageView fitHeight="673.0" fitWidth="754.0" layoutX="614.0" layoutY="132.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../asset/Frame%201%20(5).png" />
+         </image>
+      </ImageView>
+      <Label layoutX="210.0" layoutY="196.0" style="-fx-background-color: #FFCE46; -fx-background-radius: 20;" text="Change Account">
          <font>
-            <Font name="System Bold" size="21.0" />
+            <Font name="System Bold" size="24.0" />
          </font>
       </Label>
+      <Label layoutX="842.0" layoutY="196.0" style="-fx-background-color: #69B9D3; -fx-background-radius: 20;" text="Create Account">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblAdminUserName" layoutX="888.0" layoutY="154.0" text="Admin Only" />
+      <Label layoutX="737.0" layoutY="265.0" text="User ID" />
+      <Label fx:id="lblUserID" layoutX="797.0" layoutY="259.0" prefHeight="31.0" prefWidth="120.0" style="-fx-border-color: #5C8E7E;" text="      userName">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="737.0" layoutY="354.0" text="First Name">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtFName" layoutX="738.0" layoutY="379.0" prefHeight="31.0" prefWidth="167.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="963.0" layoutY="354.0" text="Last Name">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtLName" layoutX="961.0" layoutY="379.0" prefHeight="31.0" prefWidth="167.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="736.0" layoutY="462.0" text="UserName">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtUserName" layoutX="734.0" layoutY="487.0" prefHeight="31.0" prefWidth="167.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <Label layoutX="962.0" layoutY="461.0" text="Password">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="736.0" layoutY="560.0" text="Phone ">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txtPhone" layoutX="734.0" layoutY="585.0" prefHeight="31.0" prefWidth="167.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXComboBox fx:id="cmbPhone" layoutX="961.0" layoutY="583.0" onAction="#cmbClickOnAction" prefHeight="31.0" prefWidth="167.0" promptText="Phone Type" />
+      <JFXButton fx:id="btnAddNewUser" buttonType="RAISED" layoutX="875.0" layoutY="675.0" onAction="#addOnAction" style="-fx-background-color: #0FABA7; -fx-background-radius: 5;" text="Add New User" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXPasswordField fx:id="txtPassword" layoutX="961.0" layoutY="487.0" prefHeight="31.0" prefWidth="167.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXPasswordField fx:id="txtAdminPass" layoutX="962.0" layoutY="259.0" prefHeight="31.0" prefWidth="167.0" promptText="Admin Password">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton fx:id="btnChPassword" layoutX="425.0" layoutY="531.0" onAction="#changePasswordOnAction" text="Show">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnAdminPassword" layoutX="1129.0" layoutY="259.0" onAction="#adminPasswordOnAction" text="Show">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnNewPassword" layoutX="1129.0" layoutY="487.0" onAction="#newPasswordOnAction" text="Show">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXTextField fx:id="txtnewPass" layoutX="191.0" layoutY="531.0" prefHeight="31.0" prefWidth="228.0" promptText="New Password">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="btnOldPassword" layoutX="425.0" layoutY="345.0" onAction="#oldPasswordOnAction" text="Show">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXTextField fx:id="txtOldPass" layoutX="191.0" layoutY="345.0" prefHeight="31.0" prefWidth="228.0" promptText="Old Password">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtAdminPassShow" layoutX="962.0" layoutY="259.0" prefHeight="31.0" prefWidth="167.0" promptText="Admin Password">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtNewShowPass" layoutX="961.0" layoutY="487.0" prefHeight="31.0" prefWidth="167.0">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXTextField>
     </children>
 </AnchorPane>

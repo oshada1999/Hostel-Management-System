@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface QueryDAO extends SupperDAO {
     public List<CustomEntity> getLessPaidList();
+
+    List<CustomEntity> getRoomReserveList();
 }

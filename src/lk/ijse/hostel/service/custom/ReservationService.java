@@ -26,4 +26,6 @@ public interface ReservationService extends SupperService {
     ReservationDTO searchReservation(String id) throws SQLException, ClassNotFoundException;
 
     public List<CustomDTO> getLessPaidStudentList();
+
+    List<CustomDTO> getRoomReserveStudentList();
 }

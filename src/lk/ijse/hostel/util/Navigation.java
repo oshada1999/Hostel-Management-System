@@ -36,6 +36,9 @@ public class Navigation {
                 case LESS:
                 iniUI("LessPaidForm.fxml");
                 break;
+            case ALLRESERVATION:
+                iniUI("AllStudentReservationForm.fxml");
+                break;
 
         }
     }

@@ -1,5 +1,6 @@
 package lk.ijse.hostel.controller;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
@@ -25,6 +26,7 @@ import static org.jboss.logging.NDC.clear;
 
 public class RoomFormController {
 
+    public JFXButton btnAdd;
     @FXML
     private AnchorPane RoomManageContext;
 
@@ -76,6 +78,7 @@ public class RoomFormController {
         idPattern=Pattern.compile("[(R)(0-9)]{4,}$");
         integerPattern=Pattern.compile("^[1-9]{1}[0-9]*$");
         doublePattern=Pattern.compile("^[1-9]{1}[(0-9,.)]{2,}$");
+        //btnAdd.setDisable(true);
 
     }
     private void setListener() {
@@ -107,7 +110,7 @@ public class RoomFormController {
         clmType.setCellValueFactory(new PropertyValueFactory<>("type"));
         clmKeyMony.setCellValueFactory(new PropertyValueFactory<>("key_money"));
         clmRoomQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
-        clmOption.setCellValueFactory(new PropertyValueFactory<>("btn"));
+        //clmOption.setCellValueFactory(new PropertyValueFactory<>("btn"));
     }
 
     private void clear(){
@@ -122,13 +125,13 @@ public class RoomFormController {
 
         for (RoomDTO r:roomService.getAllRoom() ) {
             if (r.getRoom_type_id().contains(searchText)||r.getType().contains(searchText)){
-                Button btn=new Button("Delete");
+               /* Button btn=new Button("Delete");
                 btn.setCursor(Cursor.OPEN_HAND);
-                btn.setStyle("-fx-background-color: #DB8D88");
-                RoomTM tm=new RoomTM(r.getRoom_type_id(),r.getType(),r.getKey_money(),r.getQty(),btn);
+                btn.setStyle("-fx-background-color: #DB8D88");*/
+                RoomTM tm=new RoomTM(r.getRoom_type_id(),r.getType(),r.getKey_money(),r.getQty()/*,btn*/);
                 tmList.add(tm);
 
-                btn.setOnAction(event -> {
+               /* btn.setOnAction(event -> {
                     Alert alert=new Alert(Alert.AlertType.CONFIRMATION,"Are you sure whether do you want to delete this Room ? ",
                             ButtonType.YES,ButtonType.NO);
                     Optional<ButtonType> buttonType = alert.showAndWait();
@@ -145,14 +148,14 @@ public class RoomFormController {
                         }
                     }
 
-                });
+                });*/
             }
 
         }
         tblRoom.setItems(tmList);
     }
 
-    @FXML
+    /*@FXML
     void addNewRoomOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
         boolean isId=idPattern.matcher(txtID.getText()).matches();
         boolean isKeyMoney=doublePattern.matcher(txtKeyMony.getText()).matches();
@@ -189,7 +192,7 @@ public class RoomFormController {
         }
 
 
-    }
+    }*/
 
     @FXML
     void updateRoomOnAction(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -224,4 +227,7 @@ public class RoomFormController {
         }
     }
 
+    public void cmbClickOnAction(ActionEvent actionEvent) {
+        btnAdd.setDisable(false);
+    }
 }

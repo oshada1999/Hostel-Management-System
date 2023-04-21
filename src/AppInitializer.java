@@ -25,15 +25,24 @@ public class AppInitializer extends Application{
         user.setUserName("admin");
         user.setName(new Name_Format("chathura","oshada"));
         user.setPhoneNumber(new Phone_Number_Format("4444","jjjkjbkj"));
-        user.setPassword("Ch070@osh");
-
+        user.setPassword("Ch070@osh");*/
+   /* public static void main(String[] args) {
         Room room = new Room();
-        room.setRoom_type_id("RM-0001");
-        room.setType("Non-AC");
-        room.setKey_money(5000);
+        room.setRoom_type_id("R004");
+        room.setType("Non-AC / Food");
+        room.setKey_money(6000);
         room.setQty(25);
 
-        Student student = new Student();
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.save(room);
+        transaction.commit();
+        session.close();
+    }*/
+
+
+        /*Student student = new Student();
         student.setStudent_id("S001");
         student.setName(new Name_Format("chathura","oshada"));
         student.setAddress("147/1,colombo 06");

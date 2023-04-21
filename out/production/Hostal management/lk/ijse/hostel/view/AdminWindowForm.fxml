@@ -28,9 +28,9 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label layoutX="1493.0" layoutY="17.0" text="Log Out" textFill="WHITE">
+            <Label layoutX="1487.0" layoutY="17.0" text="Log Out" textFill="#ff7878">
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
             <Label fx:id="lblTime" layoutX="1215.0" layoutY="15.0" prefHeight="37.0" prefWidth="257.0" text="2022-11-13  |  6:35:29" textFill="WHITE">
@@ -91,7 +91,7 @@
             </Label>
             <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="15.0" layoutY="229.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asset/icons8-room-64.png" />
+                  <Image url="@../asset/icons8-manage-64%20(1).png" />
                </image>
             </ImageView>
             <Label layoutX="-1.0" layoutY="281.0" prefHeight="57.0" prefWidth="343.0" style="-fx-background-color: #226287;" text="            " textFill="#c4e4f1">
@@ -104,7 +104,7 @@
             </Label>
             <ImageView fitHeight="30.0" fitWidth="102.0" layoutX="15.0" layoutY="293.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asset/icons8-pharmacist-64.png" />
+                  <Image url="@../asset/icons8-room-64.png" />
                </image>
             </ImageView>
             <Label layoutX="-1.0" layoutY="70.0" prefHeight="30.0" prefWidth="343.0" text="    MAIN NAVIGATION" textFill="#7c888d">
@@ -176,18 +176,49 @@
                   <Font name="System Bold" size="19.0" />
                </font>
             </JFXButton>
+            <Label layoutX="-1.0" layoutY="455.0" prefHeight="57.0" prefWidth="343.0" style="-fx-background-color: #226287;" text="            " textFill="#c4e4f1">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <JFXButton alignment="BASELINE_LEFT" layoutX="46.0" layoutY="454.0" onAction="#allStudentReservation" prefHeight="57.0" prefWidth="296.0" styleClass="button1" stylesheets="@../asset/css/Style.css" text="All Student Reservation" textFill="#c4e4f1">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="30.0" fitWidth="102.0" layoutX="15.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/icons8-admin-settings-male-100%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="102.0" layoutX="15.0" layoutY="409.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/icons8-get-cash-100.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="102.0" layoutX="15.0" layoutY="466.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/icons8-people-100.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
       <AnchorPane fx:id="dashboardContext" layoutX="342.0" layoutY="66.0" prefHeight="836.0" prefWidth="1297.0" style="-fx-background-color: white;">
          <children>
             <ImageView fitHeight="836.0" fitWidth="1297.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asset/Untitled%20(7).png" />
+                  <Image url="@../asset/Untitled%20(12).png" />
                </image>
             </ImageView>
             <Separator layoutY="56.0" prefHeight="37.0" prefWidth="1295.0" />
             <ImageView fitHeight="64.0" fitWidth="67.0" layoutX="27.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../asset/dashboard%20(1).png" />
+                  <Image url="@../asset/icons8-hostel-96.png" />
                </image>
             </ImageView>
             <Label layoutX="106.0" layoutY="15.0" text="Dashboard">
@@ -196,6 +227,116 @@
                </font>
             </Label>
             <Label layoutX="109.0" layoutY="48.0" text="Welcom back,admin" />
+            <ImageView fitHeight="49.0" fitWidth="39.0" layoutX="341.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/icons8-ac-64.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="222.0" layoutY="338.0" text="AC Room">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAcRoom" layoutX="191.0" layoutY="220.0" prefHeight="69.0" prefWidth="85.0" text="  10">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+            <Label layoutX="571.0" layoutY="338.0" text="AC/Food Room">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="49.0" fitWidth="39.0" layoutX="725.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/icons8-ac-64.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="49.0" fitWidth="39.0" layoutX="728.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/icons8-rice-bowl-100.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="958.0" layoutY="338.0" text="Non-AC Room">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="49.0" fitWidth="39.0" layoutX="1104.0" layoutY="145.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/icons8-hot-96.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="195.0" layoutY="686.0" text="Non-AC/Food ">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="49.0" fitWidth="39.0" layoutX="341.0" layoutY="493.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/icons8-hot-96.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblAcRoomAmount" layoutX="286.0" layoutY="255.0" prefHeight="26.0" prefWidth="76.0" text="8900.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAcRoom1" layoutX="274.0" layoutY="217.0" text="/">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNonAcFood" layoutX="184.0" layoutY="560.0" prefHeight="69.0" prefWidth="85.0" text="  10">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNonAcFoodAmount" layoutX="279.0" layoutY="595.0" prefHeight="26.0" prefWidth="76.0" text="8900.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAcRoom12" layoutX="267.0" layoutY="557.0" text="/">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAcFood" layoutX="562.0" layoutY="219.0" prefHeight="69.0" prefWidth="85.0" text="  10">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAcFoodAmount" layoutX="657.0" layoutY="254.0" prefHeight="26.0" prefWidth="76.0" text="8900.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAcRoom121" layoutX="645.0" layoutY="216.0" text="/">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNonAc" layoutX="947.0" layoutY="210.0" prefHeight="69.0" prefWidth="85.0" text="  10">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblNonAcAmount" layoutX="1042.0" layoutY="245.0" prefHeight="26.0" prefWidth="76.0" text="8900.0">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblAcRoom1211" layoutX="1030.0" layoutY="207.0" text="/">
+               <font>
+                  <Font size="47.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="49.0" fitWidth="39.0" layoutX="335.0" layoutY="541.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../asset/icons8-rice-bowl-100.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
    </children>
 </AnchorPane>

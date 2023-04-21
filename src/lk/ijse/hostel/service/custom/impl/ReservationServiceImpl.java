@@ -74,4 +74,15 @@ public class ReservationServiceImpl implements ReservationService {
         }
         return allDetails;
     }
+
+    @Override
+    public List<CustomDTO> getRoomReserveStudentList() {
+        List<CustomEntity> all = queryDAO.getRoomReserveList();
+        List<CustomDTO> allDetails=new ArrayList<>();
+
+        for (CustomEntity customEntity:all) {
+            allDetails.add(convertor.fromCustom(customEntity));
+        }
+        return allDetails;
+    }
 }

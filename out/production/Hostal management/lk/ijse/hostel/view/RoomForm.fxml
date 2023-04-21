@@ -19,10 +19,9 @@
         <TableView fx:id="tblRoom" layoutX="17.0" layoutY="334.0" prefHeight="486.0" prefWidth="1258.0">
             <columns>
                 <TableColumn fx:id="clmId" prefWidth="121.00003051757812" text="Room Type ID" />
-                <TableColumn fx:id="clmType" prefWidth="520.0000305175781" text="Type" />
-                <TableColumn fx:id="clmKeyMony" prefWidth="303.0" text="Key Mony (LKR)" />
-                <TableColumn fx:id="clmRoomQty" prefWidth="186.0" text="Room QTY" />
-                <TableColumn fx:id="clmOption" prefWidth="126.0" text="Option" />
+                <TableColumn fx:id="clmType" prefWidth="588.0000305175781" text="Type" />
+                <TableColumn fx:id="clmKeyMony" prefWidth="330.0" text="Key Mony (LKR)" />
+                <TableColumn fx:id="clmRoomQty" prefWidth="217.0" text="Room QTY" />
             </columns>
         </TableView>
         <Separator layoutX="1.0" layoutY="56.0" prefHeight="37.0" prefWidth="1296.0" />
@@ -33,7 +32,7 @@
         </Label>
         <ImageView fitHeight="46.0" fitWidth="52.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@../asset/icons8-room-64%20(1).png" />
+                <Image url="@../asset/icons8-business-network.gif" />
             </image>
         </ImageView>
         <JFXTextField fx:id="txtID" layoutX="74.0" layoutY="225.0" prefHeight="31.0" prefWidth="134.0" promptText="Room Type ID">
@@ -60,13 +59,6 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </ImageView>
-        <JFXButton buttonType="RAISED" layoutX="990.0" layoutY="287.0" onAction="#addNewRoomOnAction" style="-fx-background-color: #138094; -fx-background-radius: 5;" text="+Add new Room" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="15.0" />
-            </font>
-            <cursor>
-                <Cursor fx:constant="HAND" />
-            </cursor></JFXButton>
         <JFXButton buttonType="RAISED" layoutX="1149.0" layoutY="287.0" onAction="#updateRoomOnAction" style="-fx-background-color: #3EA2C9; -fx-background-radius: 5;" text="Update Room" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
@@ -75,6 +67,6 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </JFXButton>
-      <JFXComboBox fx:id="cmbType" layoutX="307.0" layoutY="225.0" prefHeight="31.0" prefWidth="179.0" promptText="Type" />
+      <JFXComboBox fx:id="cmbType" layoutX="307.0" layoutY="225.0" onAction="#cmbClickOnAction" prefHeight="31.0" prefWidth="179.0" promptText="Type" />
     </children>
 </AnchorPane>
